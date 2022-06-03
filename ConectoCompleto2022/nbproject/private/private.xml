@@ -7,11 +7,13 @@
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/vista/FrmInserta.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/modelo/ConsultasPais.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/controlador/ControladorInsertar.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/vista/FrmMostrarPais.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/modelo/PaisVO.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/conexion/Conector.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/modelo/PaisDAO.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/modelo/Extras.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/vista/FrmMenu.java</file>
+            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/controlador/ControladorMostrar.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ConectoCompleto2022/src/conectocompleto2022/ConectoCompleto2022.java</file>
         </group>
     </open-files>

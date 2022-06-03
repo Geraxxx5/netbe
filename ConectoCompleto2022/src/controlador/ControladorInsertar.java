@@ -18,38 +18,51 @@ public class ControladorInsertar implements ActionListener {
         this.vIn = vIn;
         this.pvo = pvo;
         this.pdao = pdao;
-        System.out.println("HolaaEntro1");
+
         
         vIn.btnNuevoReg.addActionListener(this);
         vIn.btnNuevoCancelar.addActionListener(this);
-        
-        vIn.btnNuevoReg.addActionListener(this);
-        vIn.btnNuevoCancelar.addActionListener(this);
-        System.out.println("Paso de aqui");
+       
     }
     
     private void registrarPais(){
-        this.pvo.setNombrePais(this.vIn.txtNombrePais.getText());
-        this.pvo.setCapitalPais(this.vIn.txtCapitalPais.getText());
-        this.pvo.setPoblacionPais(Long.parseLong(this.vIn.txtPoblacionPais.getText()));
-        this.pvo.setFechaIngPais(Date.valueOf(Extras.fechaHoy()));
-        this.pdao.insertar(pvo);
+        try {
+            this.pvo.setNombrePais(this.vIn.txtNombrePais.getText());
+            this.pvo.setCapitalPais(this.vIn.txtCapitalPais.getText());
+            this.pvo.setPoblacionPais(Long.parseLong(this.vIn.txtPoblacionPais.getText()));
+            this.pvo.setFechaIngPais(Date.valueOf(Extras.fechaHoy()));
+            //this.pdao.insertar(pvo);
+            if (pdao.insertar(pvo) == true){
+                vIn.jopMensaje.showMessageDialog(vIn, "Datos Insertados Correctamente");
+                this.vIn.txtNombrePais.setText("");
+                this.vIn.txtCapitalPais.setText("");
+                this.vIn.txtPoblacionPais.setText("");
+            }
+            else{
+                vIn.jopMensaje.showMessageDialog(vIn, "Error, Datos no Registrados");
+                this.vIn.txtNombrePais.setText("");
+                this.vIn.txtCapitalPais.setText("");
+                this.vIn.txtPoblacionPais.setText("");
+            }
+        } catch (Exception e) {
+            vIn.jopMensaje.showMessageDialog(vIn, "Error, Ingrese Correctamente los datos");
+        }
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("aaaaEntro2");
-        if (e.getSource() == this.vIn.btnNuevoCancelar){
-            System.out.println("raro");
-            this.registrarPais();
+        if (e.getSource() == this.vIn.btnNuevoReg){
+            if(!this.vIn.txtNombrePais.getText().equals("")&&!this.vIn.txtCapitalPais.getText().equals("")&&!this.vIn.txtPoblacionPais.getText().equals("")){
+                this.registrarPais();
+            }
+            else{
+                this.vIn.jopMensaje.showMessageDialog(vIn, "Debe de llenar todos los datos");
+            }
         }
         if (e.getSource() == this.vIn.btnNuevoCancelar){
             this.vIn.dispose();
         }
-        //if(e.getSource() == this.vIn.btnRegistrarPais){
-        //    System.out.println("Holaa");
-        //    this.registrarPais();
-        //}
+        
     }
     
 }

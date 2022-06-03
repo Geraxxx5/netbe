@@ -26,6 +26,7 @@ public class FrmInserta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jopMensaje = new javax.swing.JOptionPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -36,7 +37,7 @@ public class FrmInserta extends javax.swing.JFrame {
         btnNuevoCancelar = new javax.swing.JButton();
         btnNuevoReg = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Insertar");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -178,6 +179,7 @@ public class FrmInserta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    public javax.swing.JOptionPane jopMensaje;
     public javax.swing.JTextField txtCapitalPais;
     public javax.swing.JTextField txtNombrePais;
     public javax.swing.JTextField txtPoblacionPais;
