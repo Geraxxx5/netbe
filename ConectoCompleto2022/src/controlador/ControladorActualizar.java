@@ -34,7 +34,12 @@ public class ControladorActualizar implements ActionListener,WindowListener,Mous
     }
     
     private void mostrar(){
-        DefaultTableModel m = new DefaultTableModel();
+        DefaultTableModel m = new DefaultTableModel(){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+            return false;
+            }
+        };
         m.setColumnCount(0);
         m.addColumn("id del pais");
         m.addColumn("Nombre del Pais");
