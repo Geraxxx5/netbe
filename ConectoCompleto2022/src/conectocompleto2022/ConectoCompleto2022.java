@@ -19,6 +19,7 @@ public class ConectoCompleto2022 {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        
         //Vistas
         FrmMenu fm = new FrmMenu();
         FrmInserta fi = new FrmInserta();
@@ -41,6 +42,9 @@ public class ConectoCompleto2022 {
         fm.setVisible(true);
         fm.setLocationRelativeTo(fm);
         fm.setResizable(false);
+        
+        
+       
         
     }
     

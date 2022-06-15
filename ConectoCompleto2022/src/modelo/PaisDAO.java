@@ -3,10 +3,18 @@ package modelo;
 import conexion.Conector;
 import java.util.ArrayList;
 import java.sql.ResultSet;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 
 public class PaisDAO implements ConsultasPais {
 
+    
+    public JasperViewer jv;
+    
     @Override
     public boolean insertar(PaisVO p) {
         Conector c = new Conector();
@@ -86,6 +94,24 @@ public class PaisDAO implements ConsultasPais {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void reporte() {
+        Conector c = new Conector();
+        try {
+            c.conectar();
+            JasperReport reporte;
+            String ruta = "src\\reporte\\newReport.jasper";
+            reporte = (JasperReport) JRLoader.loadObjectFromFile(ruta);
+            JasperPrint jp = JasperFillManager.fillReport(ruta, null, c.connection);
+            JasperViewer jv = new JasperViewer(jp, false);
+            this.jv = jv;
+            
+        } catch (Exception e) {
+            System.err.println("Error [MCEliminar]: "+e.getMessage());
+            c.desconectar();
+        }
     }
     
 }

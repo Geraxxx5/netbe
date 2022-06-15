@@ -2,6 +2,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.table.DefaultTableModel;
@@ -10,7 +12,7 @@ import modelo.PaisDAO;
 import modelo.PaisVO;
 import vista.FrmMostrarPais;
 
-public class ControladorMostrar implements ActionListener,WindowListener{
+public class ControladorMostrar implements ActionListener,WindowListener, MouseListener{
 
     FrmMostrarPais vMo = new FrmMostrarPais();
     PaisVO pvo = new PaisVO();
@@ -23,6 +25,7 @@ public class ControladorMostrar implements ActionListener,WindowListener{
         this.pdao = pdao;
         
         vMo.btnCancelarMostrar.addActionListener(this);
+        vMo.lblReporte.addMouseListener(this);
         vMo.addWindowListener(this);
     }
     
@@ -51,6 +54,12 @@ public class ControladorMostrar implements ActionListener,WindowListener{
         TableColumn cUno = vMo.tblMostrarPais.getColumnModel().getColumn(1);
         cCero.setMaxWidth(180);
 
+    }
+    
+    private void reporte(){
+        pdao.reporte();
+        pdao.jv.setDefaultCloseOperation(vMo.DISPOSE_ON_CLOSE);
+        pdao.jv.setVisible(true);
     }
     
     
@@ -88,6 +97,31 @@ public class ControladorMostrar implements ActionListener,WindowListener{
 
     @Override
     public void windowDeactivated(WindowEvent e) {
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(e.getSource() ==  vMo.lblReporte){
+            if(e.getClickCount() == 2){
+                this.reporte();
+            }
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
     }
     
 }
